@@ -4,12 +4,12 @@ from dotenv import load_dotenv, find_dotenv
 _ = load_dotenv(find_dotenv())
 
 
-
+messages = []
 while True:
-    question = input('What do you want to know? Leave empty to quit\n')
+    question = input('\nUser: ')
     if question == '':
         break
-    messages =[{'role':'user', 'content': question}]
-    text_generator(messages)
+    messages.append({'role':'user', 'content': question})
+    messages = text_generator(messages)
 
 
